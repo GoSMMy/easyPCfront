@@ -1,0 +1,38 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #videoCardForm="ngForm">
+      <div class="form-group">
+        <label for="manufacturer">Manufacturer</label>
+        <input type="text" [(ngModel)]="videoCard.manufacturer"
+               class="form-control"
+               id="manufacturer"
+               name="manufacturer"
+               placeholder="Enter manufacturer"
+               required #manufacturer="ngModel">
+      </div>
+      <div [hidden]="!manufacturer.pristine" class="alert alert-danger">Manufacturer is required</div>
+      <div class="form-group">
+        <label for="model">Model</label>
+        <input type="text" [(ngModel)]="videoCard.model"
+               class="form-control"
+               id="model"
+               name="model"
+               placeholder="Enter model"
+               required #model="ngModel">
+        <div [hidden]="!model.pristine" class="alert alert-danger">Model is required</div>
+      </div>
+      <div class="form-group">
+        <label for="capacity">Capacity</label>
+        <input type="text" [(ngModel)]="videoCard.videoMemoryCapacity"
+               class="form-control"
+               id="capacity"
+               name="capacity"
+               placeholder="Enter model"
+               required #capacity="ngModel">
+        <div [hidden]="!capacity.pristine" class="alert alert-danger">Capacity is required</div>
+      </div>
+      <button type="submit" [disabled]="!videoCardForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
